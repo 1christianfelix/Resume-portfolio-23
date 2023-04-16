@@ -14,10 +14,12 @@ import bluelight from "../assets/Bluelight_mode.png";
 import light from "../assets/light_mode.png";
 
 import WallpaperContext from "../contexts/WallpaperContext";
+import TerminalContext from "../contexts/TerminalContext";
 
 const Desktop = (props) => {
   const { wallpaper, setWallpaper } = useContext(WallpaperContext);
   const [wallpaperCurrent, setWallpaperCurrent] = useState(wallpaper_sky);
+  const { addTerminalLines } = useContext(TerminalContext);
   useEffect(() => {
     switch (wallpaper) {
       case "wallpaper_city":
@@ -88,7 +90,9 @@ const Desktop = (props) => {
               </div>
               <div
                 className="flex flex-col items-center icon_hover"
-                onDoubleClick={() => setWallpaper("wallpaper_city")}
+                onDoubleClick={() => {
+                  setWallpaper("wallpaper_city");
+                }}
               >
                 <img
                   src={bluelight}
@@ -104,7 +108,24 @@ const Desktop = (props) => {
               </div>
               <div
                 className="flex flex-col items-center icon_hover"
-                onDoubleClick={() => setWallpaper("wallpaper_sky")}
+                onDoubleClick={() => {
+                  addTerminalLines((prev) => {
+                    let newLines = [
+                      <pre data-prefix=">">
+                        {"if 'Wallpaper Sky.png' click_count == 2{"}
+                      </pre>,
+                      <pre data-prefix=">">
+                        {"setWallpaper('./Desktop/Wallpaper Sky.png')}"}
+                      </pre>,
+                      <pre data-prefix=">" className="text-success">
+                        {"Wallpaper changed to Wallpaper Sky"}
+                      </pre>,
+                    ];
+
+                    return [...prev, ...newLines];
+                  });
+                  setWallpaper("wallpaper_sky");
+                }}
               >
                 <img
                   src={light}
