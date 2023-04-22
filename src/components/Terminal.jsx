@@ -17,7 +17,7 @@ const Terminal = () => {
   return (
     <div className="container mx-auto p-8">
       <div className="mt-4">
-        <h2 className="mb-2 font-bold h-[2rem]">Rendered content:</h2>
+        <h2 className="mb-npm2 font-bold h-[2rem]">Rendered content:</h2>
         <div
           className=" w-[30rem] bg-black overflow-hidden"
           style={{ position: "relative", height: "10rem" }}

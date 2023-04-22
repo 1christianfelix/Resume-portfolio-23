@@ -26,7 +26,7 @@ const Taskbar = () => {
 
   return (
     <div
-      className={`absolute bottom-0 text-4xl w-[calc(100%-2px)] h-[2rem] ${taskbarColor} backdrop-blur-lg flex justify-between overflow-hidden items-center`}
+      className={`absolute -bottom-[.10rem] text-4xl w-[calc(100%-2px)] h-[2rem] ${taskbarColor} backdrop-blur-lg flex justify-between overflow-hidden items-center z-[200]`}
     >
       <DiWindows className={`text-white p-1 bg-transparent ${taskbarStart}`} />
       <div className="flex items-center">

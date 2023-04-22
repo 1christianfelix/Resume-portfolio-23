@@ -10,6 +10,7 @@ import DesktopContext from "./contexts/DesktopContext";
 import TextAnimation from "./components/TextAnimation";
 import { TerminalProvider } from "./contexts/TerminalContext.jsx";
 import Terminal from "./components/Terminal";
+import ProjectFolder from "./apps/ProjectFolder";
 
 import CanvasTwo from "./canvas layers/CanvasTwo";
 import ChickenCanvas from "./canvas layers/ChickenCanvas";
@@ -179,51 +180,6 @@ function App() {
               </motion.div>
             )}
           </div>
-
-          {/* <div className="h-screen w-screen bg-black relative z-200 ">
-          {initialChatPosition.start && (
-            <motion.div
-              className="absolute"
-              initial={{
-                left: "40%",
-                bottom: initialChatPosition.bottom,
-                x: "0px",
-              }}
-              animate={{ left: "50%", bottom: "96px", x: "-512px" }}
-              transition={{
-                duration: 2,
-                delay: 6,
-                ease: "anticipate",
-              }}
-              onAnimationComplete={() => {
-                setLoadCanvas(true);
-              }}
-            >
-              <div className="chat chat-start w-[10rem]">
-                <motion.div
-                  className="chat-bubble chat-bubble-primary text-white"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <TypeAnimation
-                    sequence={[
-                      800,
-                      "Hi!", // Types 'One'
-                      1000, // Waits 1s
-                      "Welcome to my portfolio!",
-                    ]}
-                    wrapper="p"
-                    cursor={false}
-                    repeat={false}
-                    style={{ display: "inline-block" }}
-                    speed={{ type: "keyStrokeDelayInMs", value: 45 }}
-                  />
-                </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </div> */}
         </DesktopContext.Provider>
       </WallpaperContext.Provider>
     </TerminalProvider>
@@ -231,89 +187,3 @@ function App() {
 }
 
 export default App;
-
-// import React, { useState, useEffect } from "react";
-// import { renderToString } from "react-dom/server";
-// import "tailwindcss/tailwind.css";
-
-// const App = () => {
-//   const [elements, setElements] = useState([]);
-//   const [visibleIndex, setVisibleIndex] = useState(-1);
-
-//   useEffect(() => {
-//     const elementsData = [
-//       renderToString(<div className="text-xl">Hello</div>),
-//       <pre data-prefix="$">
-//         <code>npm i daisyui</code>
-//       </pre>,
-//       <pre data-prefix=">" className="text-warning">
-//         <code>installing...</code>
-//       </pre>,
-//       <pre data-prefix=">" className="text-success">
-//         <code>Done!</code>
-//       </pre>,
-//       <pre data-prefix=">" className="text-success">
-//         <code>Done!</code>
-//       </pre>,
-//       <pre data-prefix=">" className="text-success">
-//         <code>Done!</code>
-//       </pre>,
-//       <pre data-prefix="$">
-//         <code>npm i daisyui</code>
-//       </pre>,
-//       <pre data-prefix=">" className="text-warning">
-//         <code>installing...</code>
-//       </pre>,
-//       <pre data-prefix="$">
-//         <code>npm i daisyui</code>
-//       </pre>,
-//       <pre data-prefix=">" className="text-warning">
-//         <code>installing...</code>
-//       </pre>,
-//     ];
-
-//     setElements(elementsData);
-//   }, []);
-
-//   useEffect(() => {
-//     if (visibleIndex < elements.length - 1) {
-//       const timer = setTimeout(() => {
-//         setVisibleIndex((prevIndex) => prevIndex + 1);
-//       }, 1000);
-//       return () => clearTimeout(timer);
-//     }
-//   }, [visibleIndex, elements]);
-
-//   return (
-//     <div className="container mx-auto p-8">
-//       <div className="mt-4">
-//         <h2 className="mb-2 font-bold h-[2rem]">Rendered content:</h2>
-//         <div
-//           className="mockup-code bg-black"
-//           style={{ position: "relative", height: "10rem" }}
-//         >
-//           {elements.map((element, index) => {
-//             const translateY =
-//               index <= visibleIndex ? -(visibleIndex - index) * 20 : 0;
-//             return (
-//               <div
-//                 key={index}
-//                 style={{
-//                   position: "absolute",
-//                   bottom: 0,
-//                   transform: `translateY(${translateY}px)`,
-//                   opacity: index <= visibleIndex ? 1 : 0,
-//                   transition: "transform 1s, opacity 1s",
-//                 }}
-//               >
-//                 {element}
-//               </div>
-//             );
-//           })}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default App;

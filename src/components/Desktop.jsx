@@ -6,6 +6,7 @@ import wallpaper_3 from "../assets/wallpaper_3.png";
 import wallpaper_city from "../assets/wallpaper_4.jpg";
 import wallpaper_sky from "../assets/wallpaper_5.jpg";
 import Taskbar from "./Taskbar";
+import ProjectFolder from "../apps/ProjectFolder";
 
 import chrome from "../assets/chrome_icon.svg";
 import bin from "../assets/bin_icon.svg";
@@ -33,7 +34,7 @@ const Desktop = (props) => {
   // console.log(wallpaperCurrent);
 
   return (
-    <div className="h-[100%] relative">
+    <div className="h-[100%] relative desktop-boundary">
       <motion.div
         className="bg-[#3d494f] h-[100%] overflow-hidden border-black border "
         initial={{ backgroundColor: "#3d494f" }}
@@ -47,6 +48,7 @@ const Desktop = (props) => {
             transition={{ delay: 2, duration: 1 }}
             className="h-[100%]"
           >
+            <ProjectFolder></ProjectFolder>
             <img src={wallpaperCurrent} alt="" className="w-[100%] h-[100%]" />
             <div className="absolute z-50 text-center h-[calc(100%-2rem)] w-[100%] top-0 grid md:grid-cols-6 md:grid-rows-4 lg:grid-cols-6 lg:grid-rows-4 1080:grid-cols-12 1080:grid-rows-6 1440:grid-cols-16 1440:grid-rows-8 place-items-center">
               <div className="flex flex-col items-center icon_hover">
