@@ -16,10 +16,12 @@ import light from "../assets/light_mode.png";
 
 import WallpaperContext from "../contexts/WallpaperContext";
 import TerminalContext from "../contexts/TerminalContext";
+import AppContext from "../contexts/AppContext";
 
 const Desktop = (props) => {
   const { wallpaper, setWallpaper } = useContext(WallpaperContext);
   const [wallpaperCurrent, setWallpaperCurrent] = useState(wallpaper_sky);
+  const { projectsFolder, showProjectsFolder } = useContext(AppContext);
   const { addTerminalLines } = useContext(TerminalContext);
   useEffect(() => {
     switch (wallpaper) {
@@ -33,10 +35,14 @@ const Desktop = (props) => {
   }, [wallpaper]);
   // console.log(wallpaperCurrent);
 
+  const closeFolder = () => {
+    showProjectsFolder(false);
+  };
+
   return (
-    <div className="h-[100%] relative desktop-boundary">
+    <div className="h-[100%] relative ">
       <motion.div
-        className="bg-[#3d494f] h-[100%] overflow-hidden border-black border "
+        className="bg-[#3d494f] h-[100%] overflow-hidden  desktop-boundary"
         initial={{ backgroundColor: "#3d494f" }}
         animate={{ backgroundColor: "#fff" }}
         transition={{ delay: 2, duration: 1 }}
@@ -48,7 +54,9 @@ const Desktop = (props) => {
             transition={{ delay: 2, duration: 1 }}
             className="h-[100%]"
           >
-            <ProjectFolder></ProjectFolder>
+            {projectsFolder && (
+              <ProjectFolder closeFolder={closeFolder}></ProjectFolder>
+            )}
             <img src={wallpaperCurrent} alt="" className="w-[100%] h-[100%]" />
             <div className="absolute z-50 text-center h-[calc(100%-2rem)] w-[100%] top-0 grid md:grid-cols-6 md:grid-rows-4 lg:grid-cols-6 lg:grid-rows-4 1080:grid-cols-12 1080:grid-rows-6 1440:grid-cols-16 1440:grid-rows-8 place-items-center">
               <div className="flex flex-col items-center icon_hover">
@@ -77,7 +85,12 @@ const Desktop = (props) => {
                   About_Me.html
                 </p>
               </div>
-              <div className="flex flex-col items-center icon_hover">
+              <div
+                className="flex flex-col items-center icon_hover"
+                onDoubleClick={() => {
+                  showProjectsFolder(true);
+                }}
+              >
                 <img
                   src={projects}
                   alt=""
@@ -87,7 +100,7 @@ const Desktop = (props) => {
                   className="text-xs lg:text-sm text-white"
                   style={{ textShadow: "0 0 2px black" }}
                 >
-                  Projects
+                  My Projects
                 </p>
               </div>
               <div

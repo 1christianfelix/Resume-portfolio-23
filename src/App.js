@@ -10,6 +10,7 @@ import DesktopContext from "./contexts/DesktopContext";
 import TextAnimation from "./components/TextAnimation";
 import { TerminalProvider } from "./contexts/TerminalContext.jsx";
 import Terminal from "./components/Terminal";
+import { AppProvider } from "./contexts/AppContext";
 import ProjectFolder from "./apps/ProjectFolder";
 
 import CanvasTwo from "./canvas layers/CanvasTwo";
@@ -60,128 +61,132 @@ function App() {
 
   return (
     <TerminalProvider>
-      <WallpaperContext.Provider value={{ wallpaper, setWallpaper }}>
-        <DesktopContext.Provider value={{ loadDesktop, setLoadDesktop }}>
-          <div className="h-screen w-screen relative z-200 ">
-            <AnimatePresence>
-              {initialChatPosition.start && (
-                <motion.div
-                  className="absolute"
-                  initial={{
-                    scale: 2,
-                    left: "45%",
-                    bottom: initialChatPosition.bottom,
-                    x: "0px",
-                  }}
-                  animate={{
-                    scale: 1,
-                    left: "50%",
-                    bottom: "96px",
-                    x: "-432px",
-                  }}
-                  transition={{
-                    duration: 2,
-                    delay: 3,
-                    ease: "anticipate",
-                  }}
-                  exit={{
-                    opacity: 0,
-                    transition: { delay: 1.5 },
-                  }}
-                  onAnimationComplete={() => {
-                    setLoadCanvas(true);
-                    setInitialChatPosition({ start: false });
-                  }}
-                >
-                  <TextAnimation></TextAnimation>
-                </motion.div>
-              )}
-            </AnimatePresence>
-            {loadCanvas && (
-              <motion.div
-                className=""
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                duration={{ duration: 1, ease: "easeIn" }}
-              >
-                <div
-                  className={`absolute inset-0 transition-opacity duration-500 ease-in ${
-                    wallpaper === "wallpaper_city" ? background : " opacity-20"
-                  }`}
-                ></div>
-                <div
-                  className={`absolute inset-0 transition-opacity duration-500 ease-in ${
-                    wallpaper === "wallpaper_sky" ? background : " opacity-20"
-                  }`}
-                ></div>
-
-                <div className={`h-screen relative`}>
+      <AppProvider>
+        <WallpaperContext.Provider value={{ wallpaper, setWallpaper }}>
+          <DesktopContext.Provider value={{ loadDesktop, setLoadDesktop }}>
+            <div className="h-screen w-screen relative z-200 ">
+              <AnimatePresence>
+                {initialChatPosition.start && (
                   <motion.div
-                    className="absolute bottom-[96px] left-[50%] -translate-x-[calc(392px+40px)]
-          "
+                    className="absolute"
+                    initial={{
+                      scale: 2,
+                      left: "45%",
+                      bottom: initialChatPosition.bottom,
+                      x: "0px",
+                    }}
+                    animate={{
+                      scale: 1,
+                      left: "50%",
+                      bottom: "96px",
+                      x: "-432px",
+                    }}
+                    transition={{
+                      duration: 2,
+                      delay: 3,
+                      ease: "anticipate",
+                    }}
+                    exit={{
+                      opacity: 0,
+                      transition: { delay: 1.5 },
+                    }}
+                    onAnimationComplete={() => {
+                      setLoadCanvas(true);
+                      setInitialChatPosition({ start: false });
+                    }}
                   >
+                    <TextAnimation></TextAnimation>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              {loadCanvas && (
+                <motion.div
+                  className=""
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  duration={{ duration: 1, ease: "easeIn" }}
+                >
+                  <div
+                    className={`absolute inset-0 transition-opacity duration-500 ease-in ${
+                      wallpaper === "wallpaper_city"
+                        ? background
+                        : " opacity-20"
+                    }`}
+                  ></div>
+                  <div
+                    className={`absolute inset-0 transition-opacity duration-500 ease-in ${
+                      wallpaper === "wallpaper_sky" ? background : " opacity-20"
+                    }`}
+                  ></div>
+
+                  <div className={`h-screen relative`}>
                     <motion.div
-                      className="chat chat-end w-[10rem]"
-                      initial={{ opacity: 1 }}
-                      animate={{ opacity: 0 }}
-                      transition={{ opacity: { delay: 1.6, duration: 1 } }}
+                      className="absolute bottom-[96px] left-[50%] -translate-x-[calc(392px+40px)]
+          "
                     >
                       <motion.div
-                        className="chat-bubble chat-bubble-info text-white"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.45 }}
+                        className="chat chat-end w-[10rem]"
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: 0 }}
+                        transition={{ opacity: { delay: 1.6, duration: 1 } }}
                       >
-                        <TypeAnimation
-                          sequence={[
-                            "Welcome to my Portfolio!",
-                            100,
-                            "To the computer!",
-                          ]}
-                          wrapper="p"
-                          cursor={false}
-                          repeat={false}
-                          style={{ display: "inline-block" }}
-                          speed={{ type: "keyStrokeDelayInMs", value: 45 }}
-                        />
+                        <motion.div
+                          className="chat-bubble chat-bubble-info text-white"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 1.45 }}
+                        >
+                          <TypeAnimation
+                            sequence={[
+                              "Welcome to my Portfolio!",
+                              100,
+                              "To the computer!",
+                            ]}
+                            wrapper="p"
+                            cursor={false}
+                            repeat={false}
+                            style={{ display: "inline-block" }}
+                            speed={{ type: "keyStrokeDelayInMs", value: 45 }}
+                          />
+                        </motion.div>
                       </motion.div>
                     </motion.div>
-                  </motion.div>
 
-                  <div>
-                    <div
-                      className={
-                        wallpaper == "default" || wallpaper == "wallpaper_sky"
-                          ? "absolute bottom-2 left-[50%] -translate-x-[calc(392px+120px)]"
-                          : "hidden"
-                      }
-                    >
-                      <Canvas></Canvas>
+                    <div>
+                      <div
+                        className={
+                          wallpaper == "default" || wallpaper == "wallpaper_sky"
+                            ? "absolute bottom-2 left-[50%] -translate-x-[calc(392px+120px)]"
+                            : "hidden"
+                        }
+                      >
+                        <Canvas></Canvas>
+                      </div>
+
+                      <div
+                        className={
+                          wallpaper == "wallpaper_city"
+                            ? "absolute bottom-2 left-[50%] -translate-x-[calc(392px+120px)]"
+                            : "hidden"
+                        }
+                      >
+                        <CanvasTwo></CanvasTwo>
+                      </div>
                     </div>
 
-                    <div
-                      className={
-                        wallpaper == "wallpaper_city"
-                          ? "absolute bottom-2 left-[50%] -translate-x-[calc(392px+120px)]"
-                          : "hidden"
-                      }
-                    >
-                      <CanvasTwo></CanvasTwo>
+                    <div className="flex flex-col h-[100%] items-center justify-center">
+                      {loadDesktop && <AnimatedRectangle></AnimatedRectangle>}
+                      <div className="absolute">
+                        {/* <Terminal></Terminal> */}
+                      </div>
                     </div>
                   </div>
-
-                  <div className="flex flex-col h-[100%] items-center justify-center">
-                    {loadDesktop && <AnimatedRectangle></AnimatedRectangle>}
-                    <div className="absolute">
-                      <Terminal></Terminal>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </div>
-        </DesktopContext.Provider>
-      </WallpaperContext.Provider>
+                </motion.div>
+              )}
+            </div>
+          </DesktopContext.Provider>
+        </WallpaperContext.Provider>
+      </AppProvider>
     </TerminalProvider>
   );
 }
