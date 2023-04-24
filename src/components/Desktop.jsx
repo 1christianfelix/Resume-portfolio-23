@@ -7,6 +7,7 @@ import wallpaper_city from "../assets/wallpaper_4.jpg";
 import wallpaper_sky from "../assets/wallpaper_5.jpg";
 import Taskbar from "./Taskbar";
 import ProjectFolder from "../apps/ProjectFolder";
+import Sticky from "./Sticky";
 
 import chrome from "../assets/chrome_icon.svg";
 import bin from "../assets/bin_icon.svg";
@@ -54,6 +55,7 @@ const Desktop = (props) => {
             transition={{ delay: 2, duration: 1 }}
             className="h-[100%]"
           >
+            <Sticky></Sticky>
             {projectsFolder && (
               <ProjectFolder closeFolder={closeFolder}></ProjectFolder>
             )}
