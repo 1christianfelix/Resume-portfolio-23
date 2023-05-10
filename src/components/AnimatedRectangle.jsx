@@ -7,7 +7,7 @@ const AnimatedRectangle = ({ children }) => {
   const [isScreenOn, setIsScreenOn] = useState(false);
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center">
+    <div className="w-screen h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="w-screen h-[75%] self-end justify-self-end relative">
         <motion.div
           className="absolute text-black border-[12px] border-y-[16px] border-black rounded-md left-[50%] -translate-x-[50%] bottom-[32px] drop-shadow-3xl-white"

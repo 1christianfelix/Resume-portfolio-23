@@ -106,7 +106,7 @@ const Canvas = () => {
       if (playerStartPosition[0] <= 16 * 24 + 2) {
         if (playerStartFrame[0] + 128 > 128 * 3) playerStartFrame[0] = 0;
         else playerStartFrame[0] += 128;
-        playerStartPosition[0] += 32;
+        playerStartPosition[0] += 64;
       }
       if (playerStartPosition[0] >= 16 * 24 + 2) {
         playerImage = playerImageUp;
@@ -151,7 +151,7 @@ const Canvas = () => {
         // Decrement the timer by 1 second
         seconds++;
 
-        if (seconds == 2) {
+        if (seconds == 1) {
           playerImage = playerImageRight;
           clearInterval(interval);
           drawImages();

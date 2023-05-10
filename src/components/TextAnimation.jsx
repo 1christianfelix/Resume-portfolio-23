@@ -30,25 +30,6 @@ const App = forwardRef((props, ref) => {
         </motion.div>
       </div>,
       <div className="chat chat-end w-[10rem]">
-        <motion.div
-          className="chat-bubble chat-bubble-info text-white"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 0, y: -20 }}
-          transition={{ delay: 5.5, duration: 0.5, ease: "easeInOut" }}
-        >
-          <TypeAnimation
-            sequence={[
-              "Hey There!", // Types 'One'
-            ]}
-            wrapper="p"
-            cursor={false}
-            repeat={false}
-            style={{ display: "inline-block" }}
-            speed={{ type: "keyStrokeDelayInMs", value: 45 }}
-          />
-        </motion.div>
-      </div>,
-      <div className="chat chat-end w-[10rem]">
         <motion.div className="chat-bubble chat-bubble-info text-white">
           <TypeAnimation
             sequence={[
@@ -71,7 +52,7 @@ const App = forwardRef((props, ref) => {
     if (visibleIndex < elements.length - 1) {
       const timer = setTimeout(() => {
         setVisibleIndex((prevIndex) => prevIndex + 1);
-      }, 1250);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [visibleIndex, elements]);

@@ -82,13 +82,13 @@ function App() {
                       x: "-432px",
                     }}
                     transition={{
-                      duration: 2,
-                      delay: 3,
+                      duration: 1.75,
+                      delay: 1.5,
                       ease: "anticipate",
                     }}
                     exit={{
                       opacity: 0,
-                      transition: { delay: 1.5 },
+                      transition: { delay: 0.5 },
                     }}
                     onAnimationComplete={() => {
                       setLoadCanvas(true);
@@ -104,7 +104,7 @@ function App() {
                   className=""
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  duration={{ duration: 1, ease: "easeIn" }}
+                  duration={{ ease: "easeIn" }}
                 >
                   <div
                     className={`absolute inset-0 transition-opacity duration-500 ease-in ${
@@ -120,38 +120,6 @@ function App() {
                   ></div>
 
                   <div className={`h-screen relative`}>
-                    <motion.div
-                      className="absolute bottom-[96px] left-[50%] -translate-x-[calc(392px+40px)]
-          "
-                    >
-                      <motion.div
-                        className="chat chat-end w-[10rem]"
-                        initial={{ opacity: 1 }}
-                        animate={{ opacity: 0 }}
-                        transition={{ opacity: { delay: 1.6, duration: 1 } }}
-                      >
-                        <motion.div
-                          className="chat-bubble chat-bubble-info text-white"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 1.45 }}
-                        >
-                          <TypeAnimation
-                            sequence={[
-                              "Welcome to my Portfolio!",
-                              100,
-                              "To the computer!",
-                            ]}
-                            wrapper="p"
-                            cursor={false}
-                            repeat={false}
-                            style={{ display: "inline-block" }}
-                            speed={{ type: "keyStrokeDelayInMs", value: 45 }}
-                          />
-                        </motion.div>
-                      </motion.div>
-                    </motion.div>
-
                     <div>
                       <div
                         className={

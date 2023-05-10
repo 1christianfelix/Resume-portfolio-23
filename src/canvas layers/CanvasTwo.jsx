@@ -151,7 +151,7 @@ const CanvasTwo = () => {
         // Decrement the timer by 1 second
         seconds++;
 
-        if (seconds == 2) {
+        if (seconds == 1) {
           playerImage = playerImageRight;
           clearInterval(interval);
           drawImages();

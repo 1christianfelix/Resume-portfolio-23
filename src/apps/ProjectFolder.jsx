@@ -6,6 +6,11 @@ import Draggable from "react-draggable";
 import AppContext from "../contexts/AppContext";
 
 const ProjectFolder = (props) => {
+  const [selectedRow, setSelectedRow] = useState(null);
+
+  const handleRowClick = (rowIndex) => {
+    setSelectedRow(rowIndex);
+  };
   const [size, setSize] = useState(
     "h-[calc(100%-1.5rem)] w-[calc(100%-1.5px)]"
   );
@@ -82,30 +87,44 @@ const ProjectFolder = (props) => {
                   </tr>
                 </thead>
                 <tbody className="text-[.8rem] hover:cursor-pointer">
-                  <tr className="even:bg-gray-100 odd:bg-[#e5e7eb]">
+                  <tr
+                    className={`even:bg-gray-100 odd:bg-[#e5e7eb] ${
+                      selectedRow === 0
+                        ? "border-solid border-slate-500 border-[.5px] text-blue-500"
+                        : ""
+                    }`}
+                    onClick={() => handleRowClick(0)}
+                  >
                     <td className="pl-2">SCRUMptious</td>
                     <td className="pl-2">April 2023</td>
                     <td className="pl-2">
                       React, FastAPI, MongoDB, Tailwind, Python, JavaScript
                     </td>
                   </tr>
-                  <tr className="even:bg-gray-100 odd:bg-[#e5e7eb]">
+                  <tr
+                    className={`even:bg-gray-100 odd:bg-[#e5e7eb] ${
+                      selectedRow === 1
+                        ? "border-solid border-slate-500 border-[.5px] text-blue-500"
+                        : ""
+                    }`}
+                    onClick={() => handleRowClick(1)}
+                  >
                     <td className="pl-2">Myoot</td>
                     <td className="pl-2">Mar 2023</td>
                     <td className="pl-2">
                       React, Tailwind, Framer Motion, JavaScript
                     </td>
                   </tr>
-                  <tr className="even:bg-gray-100 odd:bg-[#e5e7eb]">
+                  <tr
+                    className={`even:bg-gray-100 odd:bg-[#e5e7eb] ${
+                      selectedRow === 2
+                        ? "border-solid border-slate-500 border-[.5px] text-blue-500"
+                        : ""
+                    }`}
+                    onClick={() => handleRowClick(2)}
+                  >
                     <td className="pl-2">CarCar</td>
                     <td className="pl-2">Mar 2023</td>
-                    <td className="pl-2">
-                      React, Django, Postgres, Bootstrap, Python, JavaScript
-                    </td>
-                  </tr>
-                  <tr className="even:bg-gray-100 odd:bg-[#e5e7eb]">
-                    <td className="pl-2">Conference-GO</td>
-                    <td className="pl-2">Feb 2023</td>
                     <td className="pl-2">
                       React, Django, Postgres, Bootstrap, Python, JavaScript
                     </td>
