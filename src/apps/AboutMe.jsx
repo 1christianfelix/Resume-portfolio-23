@@ -105,23 +105,23 @@ const AboutMe = (props) => {
             <p className="text-left">
               <p>
                 So, there I was, fresh out of high school, plunging into a gap
-                year hoping that I would find a career path that wouldn't
+                year, hoping that I would find a career path that wouldn't
                 require me to go back to school. The first thing I did was buy a
                 ton of self-help books. Consequently, every word I read pointed
                 me to Warren Buffet's "The Intelligent Investor." Inspired, I
                 started trading and basically flushed my whole account away. So,
-                investing was not my thing, it was on to something new.
+                investing was not my thing. It was on to something new.
               </p>
               <br></br>
               <p>
-                Next, I tip-toed my way into the clothing business. Another
-                terrible idea. Very terrible, actually so bad. As I pondered my
-                next move, I decided to take an artistic approach and dived head
-                first into music production. I found that my musical skillset
-                was very "meh", but I thorougly enjoyed producing. Thanks to a
-                friend who convinced me to join a piano and music theory course
-                with her, I decided to cut my gap year short. After my first
-                semester, I decided to major in music.
+                Next, I tiptoed my way into the clothing business. Another
+                terrible idea. Very terrible, actually, so bad. As I pondered my
+                next move, I decided to take an artistic approach and dived
+                headfirst into music production. I found that my musical
+                skillset was very "meh," but I thorougly enjoyed producing.
+                Thanks to a friend who convinced me to join a piano and music
+                theory course with her, I decided to cut my gap year short.
+                After my first semester, I decided to major in music.
               </p>
               <br></br>
 
@@ -143,16 +143,16 @@ const AboutMe = (props) => {
                 science could be the perfect blend of creativity and
                 problem-solving. So, I took my counselor's advice and switched
                 majors once again right before transfering to another
-                University. By the way, that was a super terrible decision on my
+                university. By the way, that was a super terrible decision on my
                 part.
               </p>
               <br></br>
 
               <p>
-                Despite my intentions, I faced rejection for my Computer Science
+                Despite my intentions, I faced rejection for my computer science
                 applications from my dream school and my backup. My backup did
-                offer an option to join as a Math major, but my heart wasn't in
-                it. It wasn't a lost cause though as one school had accepted me
+                offer an option to join as a math major, but my heart wasn't in
+                it. It wasn't a lost cause though, as one school had accepted me
                 for computer science.
               </p>
               <br></br>
