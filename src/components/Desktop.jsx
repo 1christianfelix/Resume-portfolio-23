@@ -7,10 +7,13 @@ import wallpaper_city from "../assets/wallpaper_4.jpg";
 import wallpaper_sky from "../assets/wallpaper_5.jpg";
 import Taskbar from "./Taskbar";
 import ProjectFolder from "../apps/ProjectFolder";
+import AboutMe from "../apps/AboutMe";
 import Sticky from "./Sticky";
 
 import chrome from "../assets/chrome_icon.svg";
 import bin from "../assets/bin_icon.svg";
+import doc from "../assets/doc_icon.svg";
+import resume from "../assets/ChristianFelixResume.pdf";
 import projects from "../assets/projects_icon.png";
 import bluelight from "../assets/Bluelight_mode.png";
 import light from "../assets/light_mode.png";
@@ -22,7 +25,8 @@ import AppContext from "../contexts/AppContext";
 const Desktop = (props) => {
   const { wallpaper, setWallpaper } = useContext(WallpaperContext);
   const [wallpaperCurrent, setWallpaperCurrent] = useState(wallpaper_sky);
-  const { projectsFolder, showProjectsFolder } = useContext(AppContext);
+  const { projectsFolder, showProjectsFolder, aboutMe, showAboutMe } =
+    useContext(AppContext);
   const { addTerminalLines } = useContext(TerminalContext);
   useEffect(() => {
     switch (wallpaper) {
@@ -38,6 +42,10 @@ const Desktop = (props) => {
 
   const closeFolder = () => {
     showProjectsFolder(false);
+  };
+
+  const closeAboutMe = () => {
+    showAboutMe(false);
   };
 
   return (
@@ -57,11 +65,12 @@ const Desktop = (props) => {
           >
             <Sticky></Sticky>
             {projectsFolder && (
-              <ProjectFolder closeFolder={closeFolder}></ProjectFolder>
+              <ProjectFolder close={closeFolder}></ProjectFolder>
             )}
+            {aboutMe && <AboutMe close={closeAboutMe}></AboutMe>}
             <img src={wallpaperCurrent} alt="" className="w-[100%] h-[100%]" />
             <div className="absolute z-50 text-center h-[calc(100%-2rem)] w-[100%] top-0 grid md:grid-cols-6 md:grid-rows-4 lg:grid-cols-6 lg:grid-rows-4 1080:grid-cols-12 1080:grid-rows-6 1440:grid-cols-16 1440:grid-rows-8 place-items-center">
-              <div className="flex flex-col items-center icon_hover">
+              {/* <div className="flex flex-col items-center icon_hover">
                 <img
                   src={bin}
                   alt=""
@@ -73,8 +82,13 @@ const Desktop = (props) => {
                 >
                   Recycle Bin
                 </p>
-              </div>
-              <div className="flex flex-col items-center icon_hover">
+              </div> */}
+              <div
+                className="flex flex-col items-center icon_hover"
+                onClick={() => {
+                  showAboutMe(true);
+                }}
+              >
                 <img
                   src={chrome}
                   alt=""
@@ -89,7 +103,7 @@ const Desktop = (props) => {
               </div>
               <div
                 className="flex flex-col items-center icon_hover"
-                onDoubleClick={() => {
+                onClick={() => {
                   showProjectsFolder(true);
                 }}
               >
@@ -105,9 +119,28 @@ const Desktop = (props) => {
                   My Projects
                 </p>
               </div>
+              <a
+                href={resume}
+                without
+                rel="noopener noreferrer"
+                target="_blank"
+                className="flex flex-col items-center icon_hover"
+              >
+                <img
+                  src={doc}
+                  alt=""
+                  className="h-auto w-4  md:w-6  lg:w-7  xl:w-8  1080:w-10 1440:w-12"
+                />
+                <p
+                  className="text-xs lg:text-sm text-white"
+                  style={{ textShadow: "0 0 2px black" }}
+                >
+                  Resume
+                </p>
+              </a>
               <div
                 className="flex flex-col items-center icon_hover"
-                onDoubleClick={() => {
+                onClick={() => {
                   setWallpaper("wallpaper_city");
                 }}
               >
@@ -125,7 +158,7 @@ const Desktop = (props) => {
               </div>
               <div
                 className="flex flex-col items-center icon_hover"
-                onDoubleClick={() => {
+                onClick={() => {
                   addTerminalLines((prev) => {
                     let newLines = [
                       <pre data-prefix=">">

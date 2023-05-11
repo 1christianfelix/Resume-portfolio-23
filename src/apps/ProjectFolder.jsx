@@ -4,12 +4,43 @@ import { BsSquare } from "react-icons/bs";
 import { MdMinimize } from "react-icons/md";
 import Draggable from "react-draggable";
 import AppContext from "../contexts/AppContext";
+import Project from "./Project";
+import scrumptious_demo from "../assets/scrumptious-demo.gif";
+import scrumptious_landing_demo from "../assets/scrumptious-landing-demo.gif";
+import myoot_demo from "../assets/myoot-demo.gif";
+import carcar_demo from "../assets/carcar-demo.gif";
 
 const ProjectFolder = (props) => {
   const [selectedRow, setSelectedRow] = useState(null);
+  const [projectDisplay, setProjectDisplay] = useState([]);
+
+  const projects = [
+    <Project
+      default={0}
+      demo={scrumptious_demo}
+      project_name="SCRUMptious is a scrum board based application that revolves around the usage of boards and sticky notes. Create boards, add sticky notes, assign members, all through a sleek and user-first interface"
+      link="https://gitlab.com/team-scrappy/scrum-ptious"
+      images={[scrumptious_landing_demo, scrumptious_demo]}
+    ></Project>,
+    <Project
+      default={0}
+      demo={myoot_demo}
+      project_name="Myoot is currently a conceptual productivity application that lets the user create sticky notes and organize them anyway they like! This is part of my productivity applciation line! Stay tuned 👀"
+      link="https://gitlab.com/1christianfelix1/myoot"
+      images={[myoot_demo]}
+    ></Project>,
+    <Project
+      default={0}
+      demo={carcar_demo}
+      project_name="CarCar is a simple inventory/employee sales management application for vehicle based operations that allows the user to track sale interactions, update inventory, and view vehicle history"
+      link="https://gitlab.com/1christianfelix1/car-car"
+      images={[carcar_demo]}
+    ></Project>,
+  ];
 
   const handleRowClick = (rowIndex) => {
     setSelectedRow(rowIndex);
+    setProjectDisplay(projects[rowIndex]);
   };
   const [size, setSize] = useState(
     "h-[calc(100%-1.5rem)] w-[calc(100%-1.5px)]"
@@ -47,14 +78,11 @@ const ProjectFolder = (props) => {
                 });
               }}
             ></BsSquare>
-            <GrClose
-              className="windows_btns"
-              onClick={props.closeFolder}
-            ></GrClose>
+            <GrClose className="windows_btns" onClick={props.close}></GrClose>
           </div>
         </section>
         <div className=" flex">
-          <section className="h-[1.5rem] w-[35%] border-slate-300 border-b-[1px] border-r-[1px] flex px-2 items-center text-xs">
+          <section className="h-[1.5rem] w-[35%] border-slate-300 border-b-[1px]  flex px-2 items-center text-xs">
             <span className=" hover:cursor-default">
               {"Christian Felix > Desktop > My Projects"}
             </span>
@@ -64,9 +92,9 @@ const ProjectFolder = (props) => {
           </section>
         </div>
         <div className="flex-grow flex">
-          <section className="w-[35%] border-slate-300 border-r-[1px]">
-            <section>
-              <table className="w-full border-collapse border border-b-0 border-gray-300 table-fixed">
+          <section className="w-[35%] border-slate-300 border-solid border-r-[1px]">
+            <section className="overflow-auto">
+              <table className="w-full border-collapse border-b-0 border-gray-300 table-fixed">
                 <thead className="">
                   <tr className="">
                     <th
@@ -90,13 +118,13 @@ const ProjectFolder = (props) => {
                   <tr
                     className={`even:bg-gray-100 odd:bg-[#e5e7eb] ${
                       selectedRow === 0
-                        ? "border-solid border-slate-500 border-[.5px] text-blue-500"
+                        ? "border-solid border-slate-500 border-[.5px]  text-blue-500"
                         : ""
                     }`}
                     onClick={() => handleRowClick(0)}
                   >
                     <td className="pl-2">SCRUMptious</td>
-                    <td className="pl-2">April 2023</td>
+                    <td className="pl-2">May 2023</td>
                     <td className="pl-2">
                       React, FastAPI, MongoDB, Tailwind, Python, JavaScript
                     </td>
@@ -110,7 +138,7 @@ const ProjectFolder = (props) => {
                     onClick={() => handleRowClick(1)}
                   >
                     <td className="pl-2">Myoot</td>
-                    <td className="pl-2">Mar 2023</td>
+                    <td className="pl-2">April 2023</td>
                     <td className="pl-2">
                       React, Tailwind, Framer Motion, JavaScript
                     </td>
@@ -133,13 +161,10 @@ const ProjectFolder = (props) => {
               </table>
             </section>
           </section>
-          <section className="flex-grow flex flex-col">
-            <div className="Preview-Vid h-[70%]">
-              {" "}
-              This section should be a carousel of vids/pics
-            </div>
-            <div className="border-slate-300 border-t-[1px]">Description</div>
-          </section>
+
+          {true && (
+            <section className="h-[100%] w-[65%]">{projectDisplay}</section>
+          )}
         </div>
       </div>
     </Draggable>
