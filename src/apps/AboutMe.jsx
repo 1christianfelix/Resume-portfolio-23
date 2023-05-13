@@ -132,7 +132,7 @@ const AboutMe = (props) => {
                 music major. Why? No clue. Anyways, in the midst of completing
                 my math prerequisites, I discovered a love for problem-solving.
                 Without a single thought, I spontaneously switched my major to
-                mathematics. Still pre-med, of course. An strange combo, right?
+                mathematics. Still pre-med, of course. A strange combo, right?
               </p>
               <br></br>
 
@@ -142,7 +142,7 @@ const AboutMe = (props) => {
                 yearning for a creative outlet. Reflecting, I realized computer
                 science could be the perfect blend of creativity and
                 problem-solving. So, I took my counselor's advice and switched
-                majors once again right before transfering to another
+                majors once again right before transferring to another
                 university. By the way, that was a super terrible decision on my
                 part.
               </p>
