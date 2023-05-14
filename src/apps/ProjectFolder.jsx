@@ -20,6 +20,7 @@ const ProjectFolder = (props) => {
       demo={scrumptious_demo}
       project_name="SCRUMptious is a scrum board based application that revolves around the usage of boards and sticky notes. Create boards, add sticky notes, assign members, all through a sleek and user-first interface"
       link="https://gitlab.com/team-scrappy/scrum-ptious"
+      site="https://team-scrappy.gitlab.io/scrum-ptious/dashboard"
       images={[scrumptious_landing_demo, scrumptious_demo]}
     ></Project>,
     <Project

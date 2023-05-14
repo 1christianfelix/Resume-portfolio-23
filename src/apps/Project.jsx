@@ -66,12 +66,29 @@ const Project = (props) => {
       </div>
       <div className="border-slate-300 border-t-[1px] h-[30%] px-10 overflow-auto">
         <div className="pb-[1%]">{props.project_name}</div>
-        <div>
-          Learn More:{" "}
-          <a href={props.link} className="hover:text-blue-600 underline">
+        <div className="inline">
+          <a
+            href={props.link}
+            className="hover:text-blue-600 underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Gitlab
           </a>
         </div>
+        {props.site && (
+          <div className="inline">
+            {" | "}
+            <a
+              href={props.site}
+              className="hover:text-blue-600 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Website
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );
