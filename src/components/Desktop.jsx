@@ -11,6 +11,8 @@ import AboutMe from "../apps/AboutMe";
 import Sticky from "./Sticky";
 
 import chrome from "../assets/chrome_icon.svg";
+import linkedin from "../assets/linkedin_icon.svg";
+import gitlab from "../assets/gitlab_icon.svg";
 import bin from "../assets/bin_icon.svg";
 import doc from "../assets/doc_icon.svg";
 import resume from "../assets/ChristianFelixResume.pdf";
@@ -136,6 +138,44 @@ const Desktop = (props) => {
                   style={{ textShadow: "0 0 2px black" }}
                 >
                   Resume
+                </p>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/christianfelix97/"
+                without
+                rel="noopener noreferrer"
+                target="_blank"
+                className="flex flex-col items-center icon_hover"
+              >
+                <img
+                  src={linkedin}
+                  alt=""
+                  className="h-auto w-4  md:w-6  lg:w-7  xl:w-8  1080:w-10 1440:w-12"
+                />
+                <p
+                  className="text-xs lg:text-sm text-white"
+                  style={{ textShadow: "0 0 2px black" }}
+                >
+                  LinkedIn
+                </p>
+              </a>
+              <a
+                href="https://gitlab.com/1christianfelix1"
+                without
+                rel="noopener noreferrer"
+                target="_blank"
+                className="flex flex-col items-center icon_hover"
+              >
+                <img
+                  src={gitlab}
+                  alt=""
+                  className="h-auto w-4  md:w-6  lg:w-7  xl:w-8  1080:w-10 1440:w-12"
+                />
+                <p
+                  className="text-xs lg:text-sm text-white"
+                  style={{ textShadow: "0 0 2px black" }}
+                >
+                  GitLab
                 </p>
               </a>
               <div

@@ -26,7 +26,7 @@ const ProjectFolder = (props) => {
     <Project
       default={0}
       demo={myoot_demo}
-      project_name="Myoot is currently a conceptual productivity application that lets the user create sticky notes and organize them anyway they like! This is part of my productivity applciation line! Stay tuned 👀"
+      project_name="Myoot is currently a conceptual productivity application that lets the user create sticky notes and organize them anyway they like! This is part of my productivity application line! Stay tuned 👀"
       link="https://gitlab.com/1christianfelix1/myoot"
       images={[myoot_demo]}
     ></Project>,
