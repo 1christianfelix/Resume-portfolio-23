@@ -13,6 +13,7 @@ import Sticky from "./Sticky";
 import chrome from "../assets/chrome_icon.svg";
 import linkedin from "../assets/linkedin_icon.svg";
 import gitlab from "../assets/gitlab_icon.svg";
+import github from "../assets/github_icon.svg";
 import bin from "../assets/bin_icon.svg";
 import doc from "../assets/doc_icon.svg";
 import resume from "../assets/ChristianFelixResume.pdf";
@@ -176,6 +177,25 @@ const Desktop = (props) => {
                   style={{ textShadow: "0 0 2px black" }}
                 >
                   GitLab
+                </p>
+              </a>
+              <a
+                href="https://github.com/1christianfelix"
+                without
+                rel="noopener noreferrer"
+                target="_blank"
+                className="flex flex-col items-center icon_hover"
+              >
+                <img
+                  src={github}
+                  alt=""
+                  className="h-auto w-4  md:w-6  lg:w-7  xl:w-8  1080:w-10 1440:w-12"
+                />
+                <p
+                  className="text-xs lg:text-sm text-white"
+                  style={{ textShadow: "0 0 2px black" }}
+                >
+                  GitHub
                 </p>
               </a>
               <div

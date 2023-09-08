@@ -73,7 +73,7 @@ const Project = (props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Gitlab
+            Repository
           </a>
         </div>
         {props.site && (

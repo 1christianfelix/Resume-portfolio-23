@@ -9,6 +9,7 @@ import scrumptious_demo from "../assets/scrumptious-demo.gif";
 import scrumptious_landing_demo from "../assets/scrumptious-landing-demo.gif";
 import myoot_demo from "../assets/myoot-demo.gif";
 import carcar_demo from "../assets/carcar-demo.gif";
+import raynian from "../assets/raynian.png";
 
 const ProjectFolder = (props) => {
   const [selectedRow, setSelectedRow] = useState(null);
@@ -19,9 +20,17 @@ const ProjectFolder = (props) => {
       default={0}
       demo={scrumptious_demo}
       project_name="SCRUMptious is a scrum board based application that revolves around the usage of boards and sticky notes. Create boards, add sticky notes, assign members, all through a sleek and user-first interface"
-      link="https://gitlab.com/team-scrappy/scrum-ptious"
-      site="https://team-scrappy.gitlab.io/scrum-ptious/dashboard"
+      link="https://github.com/1christianfelix/SCRUMptious"
+      // site="https://team-scrappy.gitlab.io/scrum-ptious/dashboard"
       images={[scrumptious_landing_demo, scrumptious_demo]}
+    ></Project>,
+    <Project
+      default={0}
+      // demo={scrumptious_demo}
+      project_name="Raynian is a social productivity applciation that allows users to join each others room to study around a pomodoro timer and interact with one another through various forms of communication."
+      link="https://github.com/1christianfelix/raynian"
+      // site="https://team-scrappy.gitlab.io/scrum-ptious/dashboard"
+      images={[raynian]}
     ></Project>,
     <Project
       default={0}
@@ -138,10 +147,10 @@ const ProjectFolder = (props) => {
                     }`}
                     onClick={() => handleRowClick(1)}
                   >
-                    <td className="pl-2">Myoot</td>
-                    <td className="pl-2">April 2023</td>
+                    <td className="pl-2">Raynian</td>
+                    <td className="pl-2">June 2023</td>
                     <td className="pl-2">
-                      React, Tailwind, Framer Motion, JavaScript
+                      React, MongoDB, ExpressJS, Redux, Tailwind, OAuth2.0
                     </td>
                   </tr>
                   <tr
@@ -151,6 +160,20 @@ const ProjectFolder = (props) => {
                         : ""
                     }`}
                     onClick={() => handleRowClick(2)}
+                  >
+                    <td className="pl-2">Myoot</td>
+                    <td className="pl-2">April 2023</td>
+                    <td className="pl-2">
+                      React, Tailwind, Framer Motion, JavaScript
+                    </td>
+                  </tr>
+                  <tr
+                    className={`even:bg-gray-100 odd:bg-[#e5e7eb] ${
+                      selectedRow === 3
+                        ? "border-solid border-slate-500 border-[.5px] text-blue-500"
+                        : ""
+                    }`}
+                    onClick={() => handleRowClick(3)}
                   >
                     <td className="pl-2">CarCar</td>
                     <td className="pl-2">Mar 2023</td>
